@@ -29,11 +29,21 @@
     </script>
     <style>
         body {
-            background-color: #f5f5f5;
+            background-color: #fff;
             color: #0a0a0a;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             position: relative;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+            content: "";
+            opacity: 0.3;
+            pointer-events: none;
         }
 
         @keyframes glitchSliceBefore {
@@ -88,8 +98,10 @@
         }
 
         .site-title {
-            display: inline-block;
+            display: inline-flex;
             position: relative;
+            flex-direction: row;
+            align-items: center;
             letter-spacing: 0.02em;
             white-space: nowrap;
             font-size: clamp(1.45rem, 7.5vw, 1.8rem);
@@ -324,6 +336,85 @@
             box-shadow: 0 30px 70px rgba(139, 92, 246, 0.22);
             z-index: 0;
             pointer-events: none;
+        }
+
+        .page-accent-band::after {
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(to right, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 20px),
+                repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 20px);
+            content: "";
+            pointer-events: none;
+        }
+
+        #hamburger-icon {
+            position: relative;
+            width: 28px;
+            height: 24px;
+        }
+
+        #hamburger-icon span {
+            position: absolute;
+            top: 11px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            margin: 0;
+            transform-origin: center;
+            transition: transform 420ms cubic-bezier(0.2, 1.4, 0.4, 1), opacity 200ms ease, width 300ms ease;
+        }
+
+        #hamburger-icon span:first-child {
+            transform: translateY(-8px);
+        }
+
+        #hamburger-icon span:nth-child(2) {
+            transform: translateY(0);
+        }
+
+        #hamburger-icon span:last-child {
+            transform: translateY(8px);
+        }
+
+        #mobile-menu-btn.is-open #hamburger-icon span:first-child {
+            transform: translateY(0) rotate(45deg) scaleX(1.08);
+        }
+
+        #mobile-menu-btn.is-open #hamburger-icon span:nth-child(2) {
+            width: 100%;
+            opacity: 0;
+            transform: translateY(0) scaleX(0);
+        }
+
+        #mobile-menu-btn.is-open #hamburger-icon span:last-child {
+            transform: translateY(0) rotate(-45deg) scaleX(1.08);
+        }
+
+        @media (max-width: 767.98px) {
+            #mobile-menu-overlay {
+                position: fixed;
+                inset: var(--mobile-header-height, 64px) 0 0;
+                z-index: 45;
+                display: flex;
+                justify-content: center;
+                padding-top: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: none;
+                transform: translateY(-110%);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease, visibility 0s linear 420ms;
+            }
+
+            #mobile-menu-overlay:not(.pointer-events-none) {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transition-delay: 0s;
+            }
         }
 
         .steam-capsule-card .steam-capsule-image {
@@ -930,7 +1021,7 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-accentPurple selection:text-black">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900 px-4 sm:px-6 lg:px-16 py-2 flex items-center justify-between">
+    <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-900 px-4 sm:px-6 lg:px-16 py-2 md:py-3 flex items-center justify-between">
         <!-- Logo / Name -->
         <a href="#home" onclick="navigateTo('home')" class="site-title font-black tracking-tighter uppercase text-white flex items-center gap-0 md:gap-2" aria-label="Jhoiner Cisneros home">
             <span class="site-title-word" data-text="JHOINER"><span class="letter">J</span><span class="letter">H</span><span class="letter">O</span><span class="letter">I</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span></span>
@@ -945,11 +1036,11 @@
         </nav>
 
         <!-- Mobile Hamburger Button -->
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none z-50 p-2" aria-label="Menu">
-            <div id="hamburger-icon" class="space-y-1.5 w-7">
-                <span class="block h-0.5 w-full bg-white transition-all duration-300"></span>
-                <span class="block h-0.5 w-full bg-white transition-all duration-300"></span>
-                <span class="block h-0.5 w-full bg-white transition-all duration-300"></span>
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none z-50 p-2" aria-label="Menu" aria-expanded="false">
+            <div id="hamburger-icon">
+                <span class="bg-white"></span>
+                <span class="bg-white"></span>
+                <span class="bg-white"></span>
             </div>
         </button>
     </header>
@@ -1121,23 +1212,19 @@
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const overlay = document.getElementById('mobile-menu-overlay');
-            const hamburger = document.getElementById('hamburger-icon');
-            const spans = hamburger.getElementsByTagName('span');
+            const menuButton = document.getElementById('mobile-menu-btn');
+            const header = document.querySelector('body > header');
+            document.documentElement.style.setProperty('--mobile-header-height', `${header.getBoundingClientRect().height}px`);
             
             overlay.classList.toggle('opacity-0');
             overlay.classList.toggle('pointer-events-none');
+            const isOpen = !overlay.classList.contains('pointer-events-none');
+            menuButton.classList.toggle('is-open', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
             
-            if (!overlay.classList.contains('pointer-events-none')) {
-                // Transform to X
-                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            if (isOpen) {
                 document.body.style.overflow = 'hidden';
             } else {
-                // Revert to hamburger
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
                 document.body.style.overflow = 'auto';
             }
         }
