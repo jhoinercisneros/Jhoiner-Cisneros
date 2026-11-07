@@ -51,6 +51,14 @@
             display: inline-block;
             letter-spacing: 0.02em;
             white-space: nowrap;
+            font-size: clamp(1.45rem, 7.5vw, 1.8rem);
+            line-height: 1;
+        }
+
+        @media (min-width: 768px) {
+            .site-title {
+                font-size: clamp(2rem, 4vw, 3rem);
+            }
         }
 
         .site-title .letter {
@@ -605,9 +613,9 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-hacksawGreen selection:text-black">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900 px-4 sm:px-6 lg:px-16 py-5 flex items-center justify-between">
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900 px-4 sm:px-6 lg:px-16 py-2 flex items-center justify-between">
         <!-- Logo / Name -->
-        <a href="#home" onclick="navigateTo('home')" class="site-title text-2xl md:text-4xl font-black tracking-tighter uppercase text-white hover:text-hacksawGreen transition-colors flex items-center gap-0 md:gap-2" aria-label="Jhoiner Cisneros home">
+        <a href="#home" onclick="navigateTo('home')" class="site-title font-black tracking-tighter uppercase text-white hover:text-hacksawGreen transition-colors flex items-center gap-0 md:gap-2" aria-label="Jhoiner Cisneros home">
             <span class="letter">J</span><span class="letter">H</span><span class="letter">O</span><span class="letter">I</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span>
             <span class="letter" style="margin-left: 0.3em;">C</span><span class="letter">I</span><span class="letter">S</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span><span class="letter">O</span><span class="letter">S</span>
         </a>
