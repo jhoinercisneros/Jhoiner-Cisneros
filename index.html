@@ -170,6 +170,11 @@
             animation-delay: var(--letter-glitch-delay, 0ms);
         }
 
+        .site-title.is-touch-active .letter {
+            color: #8b5cf6;
+            transition: color 100ms ease 300ms;
+        }
+
         .site-title.is-glitching .site-title-word::before {
             animation: glitchSliceBefore 400ms steps(1, end) both;
             will-change: transform, clip-path, opacity;
@@ -1017,16 +1022,20 @@
             const title = document.querySelector('.site-title');
             if (!title) return;
 
-            const mobilePointer = window.matchMedia('(hover: none), (pointer: coarse)');
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            window.setInterval(() => {
-                if (!mobilePointer.matches || reducedMotion.matches) return;
-
+            let glitchTimeout;
+            title.addEventListener('pointerdown', event => {
+                if (event.pointerType !== 'touch' || reducedMotion.matches) return;
+                window.clearTimeout(glitchTimeout);
                 title.classList.remove('is-glitching');
                 void title.offsetWidth;
                 title.classList.add('is-glitching');
-                window.setTimeout(() => title.classList.remove('is-glitching'), 400);
-            }, 6000);
+                title.classList.add('is-touch-active');
+                glitchTimeout = window.setTimeout(() => title.classList.remove('is-glitching'), 400);
+            });
+            const releaseTouch = () => title.classList.remove('is-touch-active');
+            window.addEventListener('pointerup', releaseTouch);
+            window.addEventListener('pointercancel', releaseTouch);
         }
 
 
