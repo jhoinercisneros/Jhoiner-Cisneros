@@ -91,6 +91,24 @@
             opacity: 1;
         }
 
+        .ui-ux-portfolio-card .card-background-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+            opacity: 1;
+        }
+
+        .ui-ux-portfolio-card .ui-ux-cover-image {
+            opacity: 1;
+        }
+
+        .character-concept-card .card-background-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+            opacity: 1;
+        }
+
+        .character-concept-card .character-concept-cover-image {
+            opacity: 1;
+        }
+
         .asset-design-portfolio-card .card-background-overlay {
             background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
             opacity: 1;
@@ -555,6 +573,28 @@
                 background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
             }
 
+            .mobile-card.ui-ux-portfolio-card .ui-ux-cover-image {
+                display: block;
+                opacity: 1;
+            }
+
+            .mobile-card.ui-ux-portfolio-card .card-background-overlay {
+                display: block;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+                opacity: 1;
+            }
+
+            .mobile-card.character-concept-card .character-concept-cover-image {
+                display: block;
+                opacity: 1;
+            }
+
+            .mobile-card.character-concept-card .card-background-overlay {
+                display: block;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+                opacity: 1;
+            }
+
             .mobile-card.asset-design-portfolio-card .asset-design-cover-image {
                 display: block;
                 opacity: 1;
@@ -864,7 +904,7 @@
         // 1. HOME VIEW (INDEX)
         function renderHome() {
             return `
-                <div class="max-w-[1600px] mx-auto px-4 lg:px-6 pt-12 pb-24">
+                <div class="w-full max-w-[1720px] mx-auto px-4 lg:px-8 pt-12 pb-24">
                     <!-- Hero / Intro Header -->
                     <div class="home-hero flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
                         <div class="w-full md:w-5/12">
@@ -878,11 +918,11 @@
                     </div>
 
                     <!-- 4 Vertical Card Sections -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 lg:gap-5">
                         <!-- Card 1: UI/UX DESIGN -->
-                        <div class="mobile-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card ui-ux-portfolio-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="UI/UX Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
+                            <img src="images/ui-ux-design-anomalous.jpg" alt="UI/UX design for Anomalous game menu" class="ui-ux-cover-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
                             
                             <div class="relative z-20 h-11"></div>
 
@@ -930,9 +970,9 @@
                         </a>
 
                         <!-- Card 4: CHARACTER CONCEPT/DESIGN -->
-                        <div class="mobile-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card character-concept-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="Character Concept Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
+                            <img src="images/character-concept-creature.png" alt="Creature character concept artwork" class="character-concept-cover-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
                             
                             <div class="relative z-20 h-11"></div>
 
@@ -952,8 +992,7 @@
             return `
                 <div class="max-w-7xl mx-auto px-6 lg:px-16 pt-12 pb-24">
                     <div class="about-page-header mb-12">
-                        <span class="text-xs font-bold px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-hacksawGreen uppercase tracking-widest">ABOUT ME</span>
-                        <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mt-3">JHOINER CISNEROS</h1>
+                        <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mt-3">ABOUT ME</h1>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-12 shadow-2xl">
@@ -1000,9 +1039,9 @@
                     <!-- 4 Prominent Sections -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- UI/UX -->
-                        <div class="mobile-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card ui-ux-portfolio-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="UI/UX" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
+                            <img src="images/ui-ux-design-anomalous.jpg" alt="UI/UX design for Anomalous game menu" class="ui-ux-cover-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
 
                             <div class="relative z-20 h-10"></div>
 
@@ -1050,9 +1089,9 @@
                         </a>
 
                         <!-- Character Concept -->
-                        <div class="mobile-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card character-concept-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="Character Concept" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
+                            <img src="images/character-concept-creature.png" alt="Creature character concept artwork" class="character-concept-cover-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
 
                             <div class="relative z-20 h-10"></div>
 
