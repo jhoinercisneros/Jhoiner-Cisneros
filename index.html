@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,9 +74,438 @@
             pointer-events: none;
         }
 
+        .steam-capsule-card .steam-capsule-image {
+            opacity: 1;
+        }
+
+        .steam-capsule-card .card-background-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+            opacity: 1;
+        }
+
+        .asset-design-portfolio-card .card-background-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+            opacity: 1;
+        }
+
+        .asset-design-portfolio-card .asset-design-cover-image {
+            opacity: 1;
+        }
+
+        .discord-username {
+            display: inline-block;
+            color: #8b5cf6;
+            transition: color 180ms ease, text-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .discord-contact:hover .discord-username {
+            color: #c4b5fd;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.75);
+            transform: scale(1.04);
+        }
+
+        .gallery-image-frame {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.75), rgba(38, 38, 38, 0.9) 35%, rgba(139, 92, 246, 0.45));
+            padding: 2px;
+        }
+
+        .project-subcategory-card {
+            position: relative;
+            display: flex;
+            min-height: 20rem;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.42);
+            border-radius: 1.5rem;
+            background: linear-gradient(145deg, #292044, #111 68%);
+            color: #fff;
+            text-decoration: none;
+            transition: border-color 180ms ease, transform 180ms ease;
+        }
+
+        .project-subcategory-card:hover,
+        .project-subcategory-card:focus-visible {
+            transform: translateY(-4px);
+            border-color: #a78bfa;
+        }
+
+        .project-subcategory-card img {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-subcategory-card::before {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.58) 48%, rgba(0, 0, 0, 0.08));
+            content: "";
+        }
+
+        .project-subcategory-card.starfleet-emergence-card::before,
+        .project-subcategory-card.asset-design-card::before,
+        .project-subcategory-card.yerr-out-card::before {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+        }
+
+        .project-subcategory-card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .project-subcategory-card:not(a) {
+            cursor: default;
+        }
+
+        .subcategory-title-mobile {
+            display: none;
+        }
+
+        .gallery-image-button {
+            display: block;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #0a0a0a;
+            cursor: zoom-in;
+        }
+
+        .gallery-image-button img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery-image-button span {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            padding: 0.65rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 0.75rem;
+            background: rgba(0, 0, 0, 0.72);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 180ms ease;
+        }
+
+        .gallery-image-button:hover span,
+        .gallery-image-button:focus-visible span {
+            opacity: 1;
+        }
+
+        .steam-store-preview {
+            overflow: hidden;
+            border: 1px solid #253747;
+            border-radius: 0.75rem;
+            background: #101923;
+            color: #d6e0e8;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+        }
+
+        .steam-store-link {
+            display: flex;
+            width: 100%;
+            min-height: 3.75rem;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            border: 1px solid #5b4089;
+            border-radius: 0.75rem;
+            background: linear-gradient(to left, #49316f 0%, #2b2043 52%, #101923 100%);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: filter 180ms ease, transform 180ms ease;
+        }
+
+        .steam-store-link:hover,
+        .steam-store-link:focus-visible {
+            filter: brightness(1.2);
+            transform: translateY(-2px);
+        }
+
+        .steam-store-link i {
+            font-size: 1.5rem;
+        }
+
+        .steam-preview-content {
+            position: relative;
+            isolation: isolate;
+            padding: clamp(1rem, 3vw, 2rem);
+        }
+
+        .steam-preview-content::before {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(16, 25, 35, 0.92), rgba(16, 25, 35, 0.92)),
+                var(--steam-preview-background-image);
+            background-position: center, center 35%;
+            background-size: cover;
+            content: "";
+        }
+
+        .steam-preview-breadcrumb {
+            margin-bottom: 0.35rem;
+            color: #8da3b5;
+            font-size: 0.68rem;
+        }
+
+        .steam-preview-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(13rem, 0.8fr);
+            align-items: start;
+            gap: clamp(1rem, 2.5vw, 2rem);
+        }
+
+        .steam-preview-sample {
+            order: 1;
+            min-width: 0;
+        }
+
+        .steam-preview-media-column {
+            order: 0;
+            min-width: 0;
+        }
+
+        .steam-preview-game-title {
+            margin: 0 0 0.8rem;
+            color: #f2f6fa;
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .steam-preview-mobile-title {
+            display: none;
+        }
+
+        .steam-preview-media-space {
+            min-height: 16rem;
+            aspect-ratio: 1.55 / 1;
+            background: #000;
+        }
+
+        .steam-preview-sample img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 2.14 / 1;
+            object-fit: cover;
+            background: #0a1119;
+        }
+
+        .steam-preview-sample p {
+            margin-top: 0.55rem;
+            color: #c6d4df;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .steam-preview-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.9rem;
+            color: #a7f3d0;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .steam-preview-rating-stars {
+            color: #66c0f4;
+            letter-spacing: 0.08em;
+        }
+
+        .steam-preview-details {
+            display: grid;
+            gap: 0.5rem;
+            margin-top: 0.85rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(151, 190, 213, 0.16);
+            font-size: 0.68rem;
+        }
+
+        .steam-preview-detail {
+            display: grid;
+            grid-template-columns: 5.2rem minmax(0, 1fr);
+            gap: 0.5rem;
+        }
+
+        .steam-preview-detail dt {
+            color: #8199aa;
+            text-transform: uppercase;
+        }
+
+        .steam-preview-detail dd {
+            margin: 0;
+            color: #66c0f4;
+        }
+
+        .steam-preview-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.85rem;
+        }
+
+        .steam-preview-tags span {
+            border-radius: 0.2rem;
+            background: #20394c;
+            padding: 0.25rem 0.45rem;
+            color: #b8d8ea;
+            font-size: 0.62rem;
+        }
+
+        .image-lightbox {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            padding: 4rem 1rem 1rem;
+            border: 0;
+            background: rgba(5, 5, 5, 0.97);
+            color: #fff;
+        }
+
+        .image-lightbox::backdrop {
+            background: rgba(0, 0, 0, 0.94);
+        }
+
+        .image-lightbox img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .image-lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: grid;
+            width: 2.75rem;
+            height: 2.75rem;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 9999px;
+            background: rgba(38, 38, 38, 0.8);
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .image-lightbox-close:hover {
+            background: #8b5cf6;
+            color: #000;
+        }
+
         @media (max-width: 767.98px) {
             body {
                 background-color: #ffffff;
+            }
+
+            .gallery-page-title,
+            .steam-preview-section-header {
+                text-align: center;
+            }
+
+            .steam-preview-content,
+            .steam-preview-content .steam-preview-sample,
+            .steam-preview-content .steam-preview-media-column {
+                text-align: center;
+            }
+
+            .steam-preview-rating,
+            .steam-preview-tags {
+                justify-content: center;
+            }
+
+            .steam-preview-detail {
+                display: block;
+                text-align: center;
+            }
+
+            .subcategory-page-header {
+                text-align: center;
+            }
+
+            .subcategory-title-desktop {
+                display: none;
+            }
+
+            .subcategory-title-mobile {
+                display: block;
+            }
+
+            .subcategory-page-description {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            .about-page-header,
+            .about-bio {
+                text-align: center;
+            }
+
+            .about-bio-actions {
+                justify-content: center;
+            }
+
+            .steam-store-link {
+                min-height: 3.5rem;
+                padding: 0.75rem 1rem;
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+            }
+
+            .steam-preview-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .steam-preview-sample {
+                order: 0;
+            }
+
+            .steam-preview-media-column {
+                order: 1;
+            }
+
+            .steam-preview-mobile-title {
+                display: block;
+                margin: 0.9rem 0 0;
+            }
+
+            .steam-preview-media-column .steam-preview-game-title {
+                display: none;
+            }
+
+            .steam-preview-media-space {
+                min-height: 0;
+                aspect-ratio: 1.5 / 1;
+            }
+
+            .site-title {
+                gap: 0;
             }
 
             .home-hero {
@@ -107,6 +536,27 @@
                 display: none;
             }
 
+            .mobile-card.steam-capsule-card .steam-capsule-image {
+                display: block;
+                opacity: 1;
+            }
+
+            .mobile-card.steam-capsule-card .card-background-overlay {
+                display: block;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+            }
+
+            .mobile-card.asset-design-portfolio-card .asset-design-cover-image {
+                display: block;
+                opacity: 1;
+            }
+
+            .mobile-card.asset-design-portfolio-card .card-background-overlay {
+                display: block;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.18) 68%, transparent 100%);
+                opacity: 1;
+            }
+
             .mobile-card h3,
             .mobile-card p {
                 color: #ffffff;
@@ -115,6 +565,17 @@
             .mobile-card .explore-button {
                 background-color: #ffffff;
                 color: #000000;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+
+            .site-title .letter {
+                animation: none;
+                will-change: auto;
             }
         }
 
@@ -144,15 +605,15 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-hacksawGreen selection:text-black">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900 px-6 lg:px-16 py-5 flex items-center justify-between">
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900 px-4 sm:px-6 lg:px-16 py-5 flex items-center justify-between">
         <!-- Logo / Name -->
-        <a href="#home" onclick="navigateTo('home')" class="site-title text-2xl md:text-4xl font-black tracking-tighter uppercase text-white hover:text-hacksawGreen transition-colors flex items-center gap-2" aria-label="Jhoiner Cisneros home">
+        <a href="#home" onclick="navigateTo('home')" class="site-title text-2xl md:text-4xl font-black tracking-tighter uppercase text-white hover:text-hacksawGreen transition-colors flex items-center gap-0 md:gap-2" aria-label="Jhoiner Cisneros home">
             <span class="letter">J</span><span class="letter">H</span><span class="letter">O</span><span class="letter">I</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span>
-            <span class="letter" style="margin-left: 0.12em;">C</span><span class="letter">I</span><span class="letter">S</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span><span class="letter">O</span><span class="letter">S</span>
+            <span class="letter" style="margin-left: 0.3em;">C</span><span class="letter">I</span><span class="letter">S</span><span class="letter">N</span><span class="letter">E</span><span class="letter">R</span><span class="letter">O</span><span class="letter">S</span>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-10 text-sm font-semibold tracking-widest uppercase">
+        <nav class="hidden md:flex items-center space-x-4 lg:space-x-10 text-sm font-semibold tracking-widest uppercase">
             <a href="#about" onclick="navigateTo('about')" class="nav-link text-white hover:text-hacksawGreen transition-colors">ABOUT</a>
             <a href="#portfolio" onclick="navigateTo('portfolio')" class="nav-link text-white hover:text-hacksawGreen transition-colors">PORTFOLIO</a>
             <a href="#contact" onclick="navigateTo('contact')" class="nav-link text-white hover:text-hacksawGreen transition-colors">CONTACT</a>
@@ -184,11 +645,18 @@
         <!-- Views will be dynamically injected here via JS -->
     </main>
 
+    <dialog id="image-lightbox" class="image-lightbox" aria-label="Fullscreen artwork viewer">
+        <button class="image-lightbox-close" type="button" onclick="closeGalleryImage()" aria-label="Close fullscreen image">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <img id="image-lightbox-image" alt="">
+    </dialog>
+
     <!-- FOOTER -->
     <footer class="bg-black border-t border-neutral-900 py-10 px-6 lg:px-16 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <!-- Left Side: 4 Medium Contact Icons -->
-            <div class="flex items-center space-x-6 text-xl">
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xl">
                 <!-- Email -->
                 <a href="mailto:jhoinercisnerosart@gmail.com" title="Email" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-neutral-300 hover:text-black hover:bg-hacksawGreen transition-all">
                     <i class="fa-solid fa-envelope"></i>
@@ -197,14 +665,18 @@
                 <a href="https://www.artstation.com/jhoinercisneros" target="_blank" rel="noopener noreferrer" title="ArtStation" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-neutral-300 hover:text-black hover:bg-hacksawGreen transition-all">
                     <i class="fa-brands fa-artstation"></i>
                 </a>
+                <!-- Fiverr -->
+                <a href="https://www.fiverr.com/s/K3wXw6l" target="_blank" rel="noopener noreferrer" title="Fiverr" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-neutral-300 hover:text-black hover:bg-hacksawGreen transition-all">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-current"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/></svg>
+                </a>
                 <!-- Instagram -->
                 <a href="https://www.instagram.com/jhoinercisneros" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-neutral-300 hover:text-black hover:bg-hacksawGreen transition-all">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
                 <!-- Discord with username -->
-                <div class="flex items-center space-x-2 bg-neutral-900 px-4 py-2 rounded-full border border-neutral-800">
+                <div class="discord-contact flex items-center space-x-2 bg-neutral-900 px-4 py-2 rounded-full border border-neutral-800">
                     <i class="fa-brands fa-discord text-white"></i>
-                    <span class="text-sm font-semibold text-neutral-300 tracking-wider">jhoinercisneros</span>
+                    <span class="text-sm font-semibold text-neutral-300 tracking-wider">User: <span class="discord-username">jhoinercisneros</span></span>
                 </div>
             </div>
 
@@ -230,21 +702,85 @@
             },
             'key-art': {
                 title: 'STEAM CAPSULE / KEY ART',
-                subtitle: 'Striking promotional art engineered to command attention on Steam, Epic Games, and store banners.',
-                projects: [
-                    { title: 'Dark Wasteland Survival Key Art', desc: 'Official promotional capsule art depicting a lone scavenger facing an oncoming dust storm.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=Wasteland+Key+Art' },
-                    { title: 'Neon Syndicate Steam Header', desc: 'Wide capsule design capturing gritty cyberpunk action, sharp lighting, and vibrant color grading.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=Neon+Syndicate+Header' },
-                    { title: 'Mythic Gods Vertical Capsule', desc: 'Detailed character-driven vertical capsule showcasing divine power and mythical confrontation.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=Mythic+Gods+Capsule' }
+                mobileTitle: 'STEAM CAPSULE<br>KEY ART',
+                subtitle: 'Explore selected game artwork and promotional capsule projects.',
+                subcategories: [
+                    {
+                        title: 'STARFLEET EMERGENCE',
+                        image: 'images/steam-capsule.png',
+                        route: 'category-starfleet-emergence'
+                    },
+                    {
+                        title: 'YERR OUT',
+                        image: 'images/yerr-out-header-capsule.png',
+                        route: 'category-yerr-out'
+                    }
                 ]
             },
             'asset': {
                 title: 'ASSET DESIGN',
+                mobileTitle: 'ASSET DESIGN',
                 subtitle: 'High-quality game-ready icons, props, symbols, and interactive elements optimized for 2D/3D engines.',
-                projects: [
-                    { title: 'Alchemist Potion Bottle Pack', desc: 'Set of 24 unique glass potion flasks with glowing liquids, wax seals, and ornate metallic caps.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=Potion+Bottle+Pack' },
-                    { title: 'Sci-Fi Weapon Loot Icons', desc: 'High-resolution stylized weapon and gear icons with rarity glow effects and clean silhouettes.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=SciFi+Loot+Icons' },
-                    { title: 'Ancient Relic Symbols', desc: 'Stone carved glyphs and golden artifacts designed for matching puzzle mechanics and slot paytables.', image: 'https://placehold.co/800x600/141414/8b5cf6?text=Ancient+Relics' }
+                subcategories: [
+                    {
+                        title: 'STYLIZED DARK DESIGN',
+                        image: 'images/asset-stylized-dark-2.jpg',
+                        route: 'category-stylized-dark-design'
+                    }
                 ]
+            },
+            'stylized-dark-design': {
+                title: 'STYLIZED DARK DESIGN',
+                backRoute: 'category-asset',
+                backLabel: 'BACK TO ASSET DESIGN',
+                galleryImages: [
+                    { image: 'images/asset-stylized-dark-1.jpg', alt: 'Stylized Dark Design epic item card progression' },
+                    { image: 'images/asset-stylized-dark-2.jpg', alt: 'Stylized Dark Design mystery, elite, and legendary item cards' },
+                    { image: 'images/asset-stylized-dark-3.jpg', alt: 'Stylized Dark Design unique and epic item cards' },
+                    { image: 'images/asset-stylized-dark-axe.jpg', alt: 'Stylized Dark Design bone axe item progression and final illustration' }
+                ]
+            },
+            'starfleet-emergence': {
+                title: 'STARFLEET EMERGENCE',
+                subtitle: 'Steam capsule and key art collection.',
+                galleryImages: [
+                    { image: 'images/steam-vertical-capsule.png', alt: 'Starfleet Emergence Steam vertical capsule artwork' },
+                    { image: 'images/steam-zlibrary-hero.png', alt: 'Starfleet Emergence ZLibrary Steam hero artwork' },
+                    { image: 'images/steam-header-capsule-b.png', alt: 'Starfleet Emergence Steam header capsule artwork' },
+                    { image: 'images/steam-main-capsule.png', alt: 'Starfleet Emergence Steam main capsule artwork' }
+                ],
+                storePreview: {
+                    image: 'images/steam-header-capsule-b.png',
+                    backgroundImage: 'images/steam-zlibrary-hero.png',
+                    description: 'A polished visual presentation where composition, color, and detail come together to create a memorable identity.',
+                    reviews: 'Very Positive (1,248)',
+                    releaseDate: 'Coming soon',
+                    developer: 'Jhoiner Cisneros Art',
+                    publisher: 'Independent Studio',
+                    editor: 'Jhoiner Cisneros Art',
+                    tags: ['Visual Design', 'Digital Art', 'Key Art']
+                }
+            },
+            'yerr-out': {
+                title: 'YERR OUT',
+                galleryImages: [
+                    { image: 'images/yerr-out-vertical-capsule.png', alt: 'Yerr Out vertical capsule artwork' },
+                    { image: 'images/yerr-out-header-capsule.png', alt: 'Yerr Out header capsule artwork' },
+                    { image: 'images/yerr-out-main-capsule.png', alt: 'Yerr Out main capsule artwork' },
+                    { image: 'images/yerr-out-library-hero.png', alt: 'Yerr Out library hero artwork' }
+                ],
+                storePreview: {
+                    image: 'images/yerr-out-header-capsule.png',
+                    backgroundImage: 'images/yerr-out-page-background.png',
+                    description: 'A lively visual identity with bold shapes, expressive details, and a bright, playful palette.',
+                    reviews: 'Very Positive (864)',
+                    releaseDate: 'Coming soon',
+                    developer: 'Jhoiner Cisneros Art',
+                    publisher: 'Independent Studio',
+                    editor: 'Jhoiner Cisneros Art',
+                    tags: ['Illustration', 'Adventure', 'Art'],
+                    steamUrl: 'https://store.steampowered.com/app/1963360/Yerr_Out/'
+                }
             },
             'character': {
                 title: 'CHARACTER CONCEPT / DESIGN',
@@ -295,7 +831,9 @@
             } else if (route === 'contact') {
                 app.innerHTML = renderContact();
             } else if (route.startsWith('category-')) {
-                const catKey = route.replace('category-', '');
+                const routeKey = route.replace('category-', '');
+                const categoryAliases = { ui: 'ui-ux', keyart: 'key-art' };
+                const catKey = categoryAliases[routeKey] || routeKey;
                 app.innerHTML = renderCategory(catKey);
             } else {
                 app.innerHTML = renderHome();
@@ -317,7 +855,7 @@
         // 1. HOME VIEW (INDEX)
         function renderHome() {
             return `
-                <div class="max-w-[1600px] mx-auto px-6 lg:px-10 pt-12 pb-24">
+                <div class="max-w-[1600px] mx-auto px-4 lg:px-6 pt-12 pb-24">
                     <!-- Hero / Intro Header -->
                     <div class="home-hero flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
                         <div class="w-full md:w-5/12">
@@ -331,29 +869,25 @@
                     </div>
 
                     <!-- 4 Vertical Card Sections -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
                         <!-- Card 1: UI/UX DESIGN -->
-                        <div onclick="navigateTo('category-ui')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="UI/UX Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+                            <img src="https://placehold.co/600x800/111827/111827" alt="UI/UX Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
                             
-                            <div class="relative z-20 flex justify-end items-start">
-                                <div class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
-                                    <i class="fa-solid fa-arrow-right text-sm"></i>
-                                </div>
-                            </div>
-                            
+                            <div class="relative z-20 h-11"></div>
+
                             <div class="relative z-20 w-full flex flex-col items-center text-center">
                                 <h3 class="text-2xl sm:text-[2rem] font-black uppercase text-white mb-2 transition-colors text-center">UI/UX DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">Immersive HUDs, slot interfaces, and streamlined player experiences built for high engagement.</p>
-                                <button class="explore-button w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl text-center items-center justify-center">COMING SOON</span>
                             </div>
                         </div>
 
                         <!-- Card 2: STEAM CAPSULE/KEY ART -->
-                        <div onclick="navigateTo('category-keyart')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl">
+                        <a href="#category-keyart" class="mobile-card steam-capsule-card order-1 group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl no-underline">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="Steam Capsule Key Art" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+                            <img src="images/steam-capsule.png" alt="Starfleet Emergence Steam capsule artwork" class="placeholder-card-image steam-capsule-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
                             
                             <div class="relative z-20 flex justify-end items-start">
                                 <div class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
@@ -364,14 +898,14 @@
                             <div class="relative z-20 w-full flex flex-col items-center text-center">
                                 <h3 class="text-2xl sm:text-[2rem] font-black uppercase text-white mb-2 transition-colors text-center"><span class="block">STEAM CAPSULE</span><span class="block">KEY ART</span></h3>
                                 <p class="text-white text-sm sm:text-base">Striking promotional art engineered to command attention on Steam and store banners.</p>
-                                <button class="explore-button w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors items-center justify-center">EXPLORE</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Card 3: ASSET DESIGN -->
-                        <div onclick="navigateTo('category-asset')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl">
+                        <a href="#category-asset" class="mobile-card asset-design-portfolio-card order-2 group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl no-underline">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="Asset Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+                            <img src="images/asset-design-stylized-dark-cover.jpg" alt="Asset Design cover artwork" class="asset-design-cover-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
                             
                             <div class="relative z-20 flex justify-end items-start">
                                 <div class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
@@ -382,25 +916,21 @@
                             <div class="relative z-20 w-full flex flex-col items-center text-center">
                                 <h3 class="text-2xl sm:text-[2rem] font-black uppercase text-white mb-2 transition-colors text-center">ASSET DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">High-quality game-ready icons, props, symbols, and interactive elements optimized for engines.</p>
-                                <button class="explore-button w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors items-center justify-center">EXPLORE</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Card 4: CHARACTER CONCEPT/DESIGN -->
-                        <div onclick="navigateTo('category-character')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-pointer hover:border-hacksawGreen/60 transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-[28px] p-5 sm:p-6 flex flex-col justify-between h-[470px] sm:h-[540px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
-                            <img src="https://placehold.co/600x800/111827/111827" alt="Character Concept Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+                            <img src="https://placehold.co/600x800/111827/111827" alt="Character Concept Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-60">
                             
-                            <div class="relative z-20 flex justify-end items-start">
-                                <div class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
-                                    <i class="fa-solid fa-arrow-right text-sm"></i>
-                                </div>
-                            </div>
-                            
+                            <div class="relative z-20 h-11"></div>
+
                             <div class="relative z-20 w-full flex flex-col items-center text-center">
                                 <h3 class="text-2xl sm:text-[2rem] font-black uppercase text-white mb-2 transition-colors text-center">CHARACTER CONCEPT/DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">Memorable characters, expressive facial designs, and distinctive silhouettes tailored for games.</p>
-                                <button class="explore-button w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex w-full mt-6 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl text-center items-center justify-center">COMING SOON</span>
                             </div>
                         </div>
                     </div>
@@ -412,14 +942,14 @@
         function renderAbout() {
             return `
                 <div class="max-w-7xl mx-auto px-6 lg:px-16 pt-12 pb-24">
-                    <div class="mb-12">
+                    <div class="about-page-header mb-12">
                         <span class="text-xs font-bold px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-hacksawGreen uppercase tracking-widest">ABOUT ME</span>
                         <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mt-3">JHOINER CISNEROS</h1>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-12 shadow-2xl">
                         <!-- Left Column: Detailed Bio -->
-                        <div class="lg:col-span-7 space-y-6">
+                        <div class="about-bio lg:col-span-7 space-y-6">
                             <h2 class="text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide">
                                 Freelance 2D Game Artist & UI/UX Specialist
                             </h2>
@@ -429,20 +959,20 @@
                             <p class="text-neutral-300 text-base leading-relaxed">
                                 My expertise spans across designing intuitive player interfaces (UI/UX) for slot and arcade games, painting eye-catching Steam capsules and promotional key art, crafting modular game assets, and conceptualizing memorable characters with deep narrative resonance.
                             </p>
-                            <div class="pt-4 flex flex-wrap gap-4">
-                                <button onclick="navigateTo('portfolio')" class="px-8 py-4 bg-hacksawGreen text-black font-black uppercase tracking-widest text-xs rounded-xl hover:bg-emerald-400 transition-colors">
+                            <div class="about-bio-actions pt-4 flex flex-wrap gap-4">
+                                <a href="#portfolio" class="px-8 py-4 bg-hacksawGreen text-black font-black uppercase tracking-widest text-xs rounded-xl hover:bg-emerald-400 transition-colors no-underline">
                                     VIEW PORTFOLIO
-                                </button>
-                                <button onclick="navigateTo('contact')" class="px-8 py-4 bg-neutral-900 border border-neutral-700 text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-neutral-800 transition-colors">
+                                </a>
+                                <a href="#contact" class="px-8 py-4 bg-neutral-900 border border-neutral-700 text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-neutral-800 transition-colors no-underline">
                                     GET IN TOUCH
-                                </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Right Column: Circular Profile Photo -->
                         <div class="lg:col-span-5 flex justify-center">
                             <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-hacksawGreen to-neutral-800 shadow-2xl">
-                                <img src="https://placehold.co/400x400/111827/8b5cf6?text=JC" alt="Jhoiner Cisneros" class="w-full h-full object-cover rounded-full border-4 border-black">
+                                <img src="images/jhoiner-profile.jpg" alt="Jhoiner Cisneros" class="w-full h-full object-cover rounded-full border-4 border-black">
                             </div>
                         </div>
                     </div>
@@ -455,35 +985,29 @@
             return `
                 <div class="max-w-7xl mx-auto px-6 lg:px-16 pt-12 pb-24">
                     <div class="mb-12">
-                        <span class="text-xs font-bold px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-hacksawGreen uppercase tracking-widest">GALLERY & WORKS</span>
                         <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mt-3">PORTFOLIO</h1>
-                        <p class="text-black mt-2 text-base">Explore my major disciplines and specialized game art categories below.</p>
                     </div>
 
                     <!-- 4 Prominent Sections -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- UI/UX -->
-                        <div onclick="navigateTo('category-ui')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card order-3 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="UI/UX" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
-                            
-                            <div class="relative z-20 flex justify-between items-center">
-                                <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </div>
-                            </div>
+                            <img src="https://placehold.co/800x600/111827/111827" alt="UI/UX" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
+
+                            <div class="relative z-20 h-10"></div>
 
                             <div class="relative z-20 text-center">
                                 <h3 class="text-3xl font-black uppercase text-white mb-3 text-center transition-colors">UI/UX DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">Immersive HUDs, slot interfaces, and streamlined player experiences built for high engagement.</p>
-                                <button class="explore-button mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl text-center items-center justify-center">COMING SOON</span>
                             </div>
                         </div>
 
                         <!-- Key Art -->
-                        <div onclick="navigateTo('category-keyart')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl">
+                        <a href="#category-keyart" class="mobile-card steam-capsule-card order-1 group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl no-underline">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="Key Art" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
+                            <img src="images/steam-capsule.png" alt="Starfleet Emergence Steam capsule artwork" class="placeholder-card-image steam-capsule-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
                             
                             <div class="relative z-20 flex justify-between items-center">
                                 <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
@@ -494,14 +1018,14 @@
                             <div class="relative z-20 text-center">
                                 <h3 class="text-3xl font-black uppercase text-white mb-3 text-center transition-colors"><span class="block">STEAM CAPSULE</span><span class="block">KEY ART</span></h3>
                                 <p class="text-white text-sm sm:text-base">Striking promotional art engineered to command attention on Steam, Epic Games, and store banners.</p>
-                                <button class="explore-button mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors items-center justify-center">EXPLORE</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Asset Design -->
-                        <div onclick="navigateTo('category-asset')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl">
+                        <a href="#category-asset" class="mobile-card asset-design-portfolio-card order-2 group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl no-underline">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="Asset Design" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
+                            <img src="images/asset-design-stylized-dark-cover.jpg" alt="Asset Design cover artwork" class="asset-design-cover-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
                             
                             <div class="relative z-20 flex justify-between items-center">
                                 <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
@@ -512,25 +1036,21 @@
                             <div class="relative z-20 text-center">
                                 <h3 class="text-3xl font-black uppercase text-white mb-3 text-center transition-colors">ASSET DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">High-quality game-ready icons, props, symbols, and interactive elements optimized for 2D/3D engines.</p>
-                                <button class="explore-button mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors items-center justify-center">EXPLORE</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Character Concept -->
-                        <div onclick="navigateTo('category-character')" class="mobile-card group relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-pointer hover:border-hacksawGreen transition-all duration-300 overflow-hidden shadow-2xl">
+                        <div class="mobile-card order-4 relative bg-hacksawCard border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between h-[380px] sm:h-[420px] cursor-default transition-all duration-300 overflow-hidden shadow-2xl">
                             <div class="card-background-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 z-10"></div>
-                            <img src="https://placehold.co/800x600/111827/111827" alt="Character Concept" class="placeholder-card-image absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-50">
-                            
-                            <div class="relative z-20 flex justify-between items-center">
-                                <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-hacksawGreen group-hover:text-black transition-colors">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </div>
-                            </div>
+                            <img src="https://placehold.co/800x600/111827/111827" alt="Character Concept" class="placeholder-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-500 opacity-50">
+
+                            <div class="relative z-20 h-10"></div>
 
                             <div class="relative z-20 text-center">
                                 <h3 class="text-3xl font-black uppercase text-white mb-3 text-center transition-colors">CHARACTER CONCEPT/DESIGN</h3>
                                 <p class="text-white text-sm sm:text-base">Memorable characters, expressive facial designs, and distinctive silhouettes tailored for indie games.</p>
-                                <button class="explore-button mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl hover:bg-hacksawGreen transition-colors">EXPLORE</button>
+                                <span class="explore-button inline-flex mt-6 px-8 py-3 bg-white text-black font-extrabold uppercase text-xs tracking-widest rounded-xl text-center items-center justify-center">COMING SOON</span>
                             </div>
                         </div>
                     </div>
@@ -568,6 +1088,15 @@
                             <span class="text-sm text-neutral-400 group-hover:text-hacksawGreen transition-colors">artstation.com/jhoinercisneros</span>
                         </a>
 
+                        <!-- Fiverr -->
+                        <a href="https://www.fiverr.com/s/K3wXw6l" target="_blank" rel="noopener noreferrer" class="group bg-hacksawCard border border-neutral-800 p-8 rounded-3xl flex flex-col items-center justify-center hover:border-hacksawGreen transition-all duration-300 shadow-2xl">
+                            <div class="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-2xl text-white mb-4 group-hover:scale-110 group-hover:bg-hacksawGreen group-hover:text-black transition-all">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" class="h-7 w-7 fill-current"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/></svg>
+                            </div>
+                            <h3 class="text-lg font-black uppercase text-white mb-1">FIVERR</h3>
+                            <span class="text-sm text-neutral-400 group-hover:text-hacksawGreen transition-colors">fiverr.com</span>
+                        </a>
+
                         <!-- Instagram -->
                         <a href="https://www.instagram.com/jhoinercisneros" target="_blank" rel="noopener noreferrer" class="group bg-hacksawCard border border-neutral-800 p-8 rounded-3xl flex flex-col items-center justify-center hover:border-hacksawGreen transition-all duration-300 shadow-2xl">
                             <div class="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-2xl text-white mb-4 group-hover:scale-110 group-hover:bg-hacksawGreen group-hover:text-black transition-all">
@@ -578,12 +1107,12 @@
                         </a>
 
                         <!-- Discord -->
-                        <div class="group bg-hacksawCard border border-neutral-800 p-8 rounded-3xl flex flex-col items-center justify-center hover:border-hacksawGreen transition-all duration-300 shadow-2xl">
+                        <div class="discord-contact group bg-hacksawCard border border-neutral-800 p-8 rounded-3xl flex flex-col items-center justify-center hover:border-hacksawGreen transition-all duration-300 shadow-2xl sm:col-span-2 sm:w-1/2 sm:justify-self-center">
                             <div class="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-2xl text-white mb-4 group-hover:scale-110 group-hover:bg-hacksawGreen group-hover:text-black transition-all">
                                 <i class="fa-brands fa-discord"></i>
                             </div>
                             <h3 class="text-lg font-black uppercase text-white mb-1">DISCORD</h3>
-                            <span class="text-sm text-neutral-400 group-hover:text-hacksawGreen transition-colors">jhoinercisneros</span>
+                            <span class="text-sm text-neutral-400">User: <span class="discord-username">jhoinercisneros</span></span>
                         </div>
                     </div>
                 </div>
@@ -595,10 +1124,18 @@
             const data = projectData[catKey];
             if (!data) return renderHome();
 
+            if (data.galleryImages) {
+                return renderImageGallery(data);
+            }
+
+            if (data.subcategories) {
+                return renderSubcategories(data);
+            }
+
             let projectsHtml = '';
             data.projects.forEach((proj, idx) => {
                 projectsHtml += `
-                    <div class="bg-hacksawCard border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-hacksawGreen/60 transition-all duration-300">
+                    <div class="bg-hacksawCard border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between">
                         <div class="relative overflow-hidden aspect-video">
                             <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-700 text-xs font-bold text-white">
@@ -607,13 +1144,13 @@
                         </div>
                         <div class="p-8 flex flex-col flex-grow justify-between">
                             <div>
-                                <h3 class="text-2xl font-black uppercase text-white mb-3 group-hover:text-hacksawGreen transition-colors">${proj.title}</h3>
+                                <h3 class="text-2xl font-black uppercase text-white mb-3">${proj.title}</h3>
                                 <p class="text-neutral-400 text-sm leading-relaxed mb-6">${proj.desc}</p>
                             </div>
                             <div class="pt-4 border-t border-neutral-900 flex items-center justify-between">
                                 <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">Jhoiner Cisneros Art</span>
-                                <span class="text-xs font-extrabold text-hacksawGreen uppercase tracking-widest flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                    DETAILS <i class="fa-solid fa-arrow-right"></i>
+                                <span class="text-xs font-extrabold text-hacksawGreen uppercase tracking-widest">
+                                    PROJECT PREVIEW
                                 </span>
                             </div>
                         </div>
@@ -625,9 +1162,9 @@
                 <div class="max-w-7xl mx-auto px-6 lg:px-16 pt-12 pb-24">
                     <!-- Back Button & Header -->
                     <div class="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <button onclick="navigateTo('portfolio')" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-xl hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors w-fit">
+                        <a href="#portfolio" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-xl hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors w-fit no-underline">
                             <i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
-                        </button>
+                        </a>
                         <span class="text-xs font-bold px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-hacksawGreen uppercase tracking-widest w-fit">
                             FEATURED COLLECTION
                         </span>
@@ -646,9 +1183,150 @@
             `;
         }
 
+        function renderSubcategories(data) {
+            const subcategoriesHtml = data.subcategories.map(item => {
+                const content = `
+                    ${item.image ? `<img src="${item.image}" alt="" aria-hidden="true">` : ''}
+                    <div class="project-subcategory-card-content">
+                        <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3">${item.title}</h2>
+                        ${item.description ? `<p class="text-sm text-neutral-300 mb-6">${item.description}</p>` : ''}
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-violet-300">
+                            ${item.comingSoon ? 'COMING SOON' : 'EXPLORE PROJECT'}
+                        </span>
+                    </div>
+                `;
+
+                return item.comingSoon
+                    ? `<div class="project-subcategory-card" aria-label="${item.title}, coming soon">${content}</div>`
+                    : `<a class="project-subcategory-card${item.route === 'category-starfleet-emergence' ? ' starfleet-emergence-card' : ''}${item.route === 'category-yerr-out' ? ' yerr-out-card' : ''}${item.route === 'category-stylized-dark-design' ? ' asset-design-card' : ''}" href="#${item.route}" onclick="navigateTo('${item.route}')">${content}</a>`;
+            }).join('');
+
+            return `
+                <div class="max-w-7xl mx-auto px-6 lg:px-16 pt-8 sm:pt-12 pb-24">
+                    <a href="#portfolio" onclick="navigateTo('portfolio')" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-xl hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors mb-8 no-underline">
+                        <i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
+                    </a>
+                    <header class="mb-10 sm:mb-14">
+                        <h1 class="subcategory-page-header text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-4" aria-label="${data.title}">
+                            <span class="subcategory-title-desktop" aria-hidden="true">${data.title}</span>
+                            <span class="subcategory-title-mobile" aria-hidden="true">${data.mobileTitle}</span>
+                        </h1>
+                        <p class="subcategory-page-description text-black text-base sm:text-lg max-w-2xl">${data.subtitle}</p>
+                    </header>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                        ${subcategoriesHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderImageGallery(data) {
+            const imagesHtml = data.galleryImages.map((item, index) => `
+                <div class="gallery-image-frame rounded-2xl sm:rounded-3xl shadow-2xl">
+                    <button class="gallery-image-button rounded-[14px] sm:rounded-[22px]" type="button"
+                        data-image="${item.image}" data-alt="${item.alt}" aria-label="View ${item.alt} fullscreen">
+                        <img src="${item.image}" alt="${item.alt}" loading="${index === 0 ? 'eager' : 'lazy'}">
+                        <span>View fullscreen</span>
+                    </button>
+                </div>
+            `).join('');
+            const storePreview = data.storePreview ? `
+                <section class="steam-preview-section pt-4 sm:pt-8" aria-labelledby="steam-preview-heading">
+                    <div class="steam-preview-section-header mb-5 sm:mb-7">
+                        <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-600 mb-2">Artwork presentation</p>
+                        <h2 id="steam-preview-heading" class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-black">STEAM STORE PAGE PREVIEW</h2>
+                    </div>
+                    <div class="steam-store-preview">
+                        <div class="steam-preview-content" style="--steam-preview-background-image: url('${data.storePreview.backgroundImage}')">
+                            <p class="steam-preview-breadcrumb">All Games &gt; Featured &gt; ${data.title}</p>
+                            <div class="steam-preview-layout">
+                                <div class="steam-preview-media-column">
+                                    <h3 class="steam-preview-game-title">${data.title}</h3>
+                                    <div class="steam-preview-media-space" aria-label="Black media area placeholder"></div>
+                                </div>
+                                <aside class="steam-preview-sample">
+                                    <img src="${data.storePreview.image}" alt="${data.title} sample store artwork" loading="lazy">
+                                    <h3 class="steam-preview-mobile-title steam-preview-game-title">${data.title}</h3>
+                                    <p>${data.storePreview.description}</p>
+                                    <div class="steam-preview-rating">
+                                        <span class="steam-preview-rating-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                                        <span>${data.storePreview.reviews}</span>
+                                    </div>
+                                    <dl class="steam-preview-details">
+                                        <div class="steam-preview-detail">
+                                            <dt>Release date</dt><dd>${data.storePreview.releaseDate}</dd>
+                                        </div>
+                                        <div class="steam-preview-detail">
+                                            <dt>Developer</dt><dd>${data.storePreview.developer}</dd>
+                                        </div>
+                                        <div class="steam-preview-detail">
+                                            <dt>Publisher</dt><dd>${data.storePreview.publisher}</dd>
+                                        </div>
+                                        <div class="steam-preview-detail">
+                                            <dt>Editor</dt><dd>${data.storePreview.editor}</dd>
+                                        </div>
+                                    </dl>
+                                    <div class="steam-preview-tags" aria-label="Example categories">
+                                        ${data.storePreview.tags.map(tag => `<span>${tag}</span>`).join('')}
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    ${data.storePreview.steamUrl ? `
+                        <a class="steam-store-link" href="${data.storePreview.steamUrl}" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-steam" aria-hidden="true"></i>
+                            <span>View on Steam</span>
+                        </a>
+                    ` : ''}
+                </section>
+            ` : '';
+
+            return `
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 pt-8 sm:pt-12 pb-24">
+                    <a href="#${data.backRoute || 'category-keyart'}" onclick="navigateTo('${data.backRoute || 'category-keyart'}')" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-xl hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors mb-8 no-underline">
+                        <i class="fa-solid fa-arrow-left"></i> ${data.backLabel || 'BACK TO COLLECTIONS'}
+                    </a>
+                    <header class="mb-8 sm:mb-10">
+                        <h1 class="gallery-page-title text-3xl sm:text-5xl font-black uppercase tracking-tight text-black">${data.title}</h1>
+                    </header>
+                    <div class="flex flex-col gap-8 sm:gap-12">
+                        ${imagesHtml}
+                    </div>
+                    ${storePreview}
+                </div>
+            `;
+        }
+
+        function openGalleryImage(button) {
+            const lightbox = document.getElementById('image-lightbox');
+            const image = document.getElementById('image-lightbox-image');
+            image.src = button.dataset.image;
+            image.alt = button.dataset.alt;
+            lightbox.showModal();
+        }
+
+        function closeGalleryImage() {
+            document.getElementById('image-lightbox').close();
+        }
+
         // Initialize Router on Page Load
         window.addEventListener('DOMContentLoaded', () => {
             applyLetterWave('.site-title');
+            document.getElementById('app').addEventListener('click', event => {
+                const button = event.target.closest('.gallery-image-button');
+                if (button) openGalleryImage(button);
+            });
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.addEventListener('click', event => {
+                if (event.target === event.currentTarget) closeGalleryImage();
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && lightbox.open) {
+                    event.preventDefault();
+                    closeGalleryImage();
+                }
+            });
             const hash = window.location.hash.replace('#', '') || 'home';
             navigateTo(hash);
         });
