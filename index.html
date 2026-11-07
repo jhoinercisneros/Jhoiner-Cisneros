@@ -63,6 +63,30 @@
             94% { transform: translateX(-2px) skewX(-3deg); }
         }
 
+        @keyframes profileSliceBefore {
+            0%, 12%, 45%, 67%, 95%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateX(0); }
+            7% { opacity: 0.8; clip-path: inset(8% 0 70% 0); transform: translateX(-8px); }
+            33% { opacity: 0.75; clip-path: inset(38% 0 38% 0); transform: translateX(7px); }
+            52% { opacity: 0.85; clip-path: inset(68% 0 12% 0); transform: translateX(-7px); }
+            81% { opacity: 0.75; clip-path: inset(22% 0 55% 0); transform: translateX(8px); }
+        }
+
+        @keyframes profileSliceAfter {
+            0%, 7%, 33%, 52%, 81%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateX(0); }
+            12% { opacity: 0.75; clip-path: inset(14% 0 62% 0); transform: translateX(7px); }
+            45% { opacity: 0.85; clip-path: inset(64% 0 12% 0); transform: translateX(-8px); }
+            67% { opacity: 0.75; clip-path: inset(34% 0 40% 0); transform: translateX(8px); }
+            95% { opacity: 0.85; clip-path: inset(78% 0 4% 0); transform: translateX(-7px); }
+        }
+
+        @keyframes profileFrameJitter {
+            0%, 100% { transform: translate(0, 0) skew(0); filter: hue-rotate(0); }
+            18% { transform: translate(-2px, 1px) skew(-1deg); filter: hue-rotate(-18deg); }
+            43% { transform: translate(2px, -1px) skew(1deg); filter: hue-rotate(24deg); }
+            69% { transform: translate(-1px, 0) skew(-0.5deg); filter: hue-rotate(-12deg); }
+            88% { transform: translate(1px, 1px) skew(0.5deg); filter: hue-rotate(12deg); }
+        }
+
         .site-title {
             display: inline-block;
             position: relative;
@@ -183,6 +207,109 @@
         .site-title.is-glitching .site-title-word::after {
             animation: glitchSliceAfter 400ms steps(1, end) both;
             will-change: transform, clip-path, opacity;
+        }
+
+        .about-profile-glitch {
+            isolation: isolate;
+            transition: box-shadow 150ms ease;
+        }
+
+        .about-profile-glitch::before,
+        .about-profile-glitch::after {
+            position: absolute;
+            inset: 1rem;
+            z-index: 2;
+            border-radius: 50%;
+            background: url("images/jhoiner-profile.jpg") center / cover no-repeat;
+            content: "";
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .about-profile-glitch::before {
+            filter: sepia(1) saturate(8) hue-rotate(150deg);
+        }
+
+        .about-profile-glitch::after {
+            filter: sepia(1) saturate(8) hue-rotate(275deg);
+        }
+
+        .about-profile-glitch > img {
+            position: relative;
+            z-index: 1;
+            transition: filter 100ms ease 300ms;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .about-profile-glitch:hover {
+                animation: profileFrameJitter 400ms steps(1, end) both;
+                box-shadow: 0 0 0 2px #8b5cf6, 0 0 24px rgba(139, 92, 246, 0.75);
+            }
+
+            .about-profile-glitch:hover::before {
+                animation: profileSliceBefore 400ms steps(1, end) both;
+            }
+
+            .about-profile-glitch:hover::after {
+                animation: profileSliceAfter 400ms steps(1, end) both;
+            }
+
+            .about-profile-glitch:hover > img {
+                filter: saturate(1.35) contrast(1.12);
+            }
+        }
+
+        .about-profile-glitch.is-glitching {
+            animation: profileFrameJitter 400ms steps(1, end) both;
+            box-shadow: 0 0 0 2px #8b5cf6, 0 0 24px rgba(139, 92, 246, 0.75);
+        }
+
+        .about-profile-glitch.is-glitching::before {
+            animation: profileSliceBefore 400ms steps(1, end) both;
+        }
+
+        .about-profile-glitch.is-glitching::after {
+            animation: profileSliceAfter 400ms steps(1, end) both;
+        }
+
+        .about-profile-glitch.is-glitching > img {
+            filter: saturate(1.35) contrast(1.12);
+        }
+
+        .about-profile-glitch.is-touch-active > img {
+            filter: saturate(1.35) contrast(1.12);
+            transition-delay: 300ms;
+        }
+
+        .about-action {
+            border: 1px solid #404040;
+            background: #171717;
+            color: #fff;
+            transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .about-action:hover {
+                border-color: #8b5cf6;
+                background: #8b5cf6;
+                color: #000;
+            }
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            .about-action {
+                border-color: #8b5cf6;
+                background: #8b5cf6;
+                color: #000;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about-action {
+                border-color: #8b5cf6;
+                background: #8b5cf6;
+                color: #000;
+            }
         }
 
         .page-accent-band {
@@ -739,6 +866,26 @@
                 scroll-behavior: auto !important;
             }
 
+            .about-profile-glitch,
+            .about-profile-glitch:hover,
+            .about-profile-glitch.is-glitching {
+                animation: none;
+                box-shadow: none;
+                filter: none;
+            }
+
+            .about-profile-glitch::before,
+            .about-profile-glitch::after {
+                animation: none !important;
+                opacity: 0 !important;
+            }
+
+            .about-profile-glitch > img,
+            .about-profile-glitch:hover > img,
+            .about-profile-glitch.is-glitching > img {
+                filter: none;
+            }
+
             .site-title.is-glitching .site-title-word::before,
             .site-title.is-glitching .site-title-word::after,
             .site-title:hover .site-title-word::before,
@@ -1016,6 +1163,7 @@
             } else {
                 app.innerHTML = renderHome();
             }
+            initializeAboutProfileGlitch();
         }
 
         function initializeSiteTitleGlitch() {
@@ -1036,6 +1184,29 @@
             const releaseTouch = () => title.classList.remove('is-touch-active');
             window.addEventListener('pointerup', releaseTouch);
             window.addEventListener('pointercancel', releaseTouch);
+
+        }
+
+        function initializeAboutProfileGlitch() {
+            const profile = document.querySelector('.about-profile-glitch');
+            if (!profile) return;
+
+            if (profile.dataset.glitchInitialized === 'true') return;
+            profile.dataset.glitchInitialized = 'true';
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let profileGlitchTimeout;
+            profile.addEventListener('pointerdown', event => {
+                if (event.pointerType !== 'touch' || reducedMotion.matches) return;
+                window.clearTimeout(profileGlitchTimeout);
+                profile.classList.remove('is-glitching');
+                void profile.offsetWidth;
+                profile.classList.add('is-glitching', 'is-touch-active');
+                profileGlitchTimeout = window.setTimeout(() => profile.classList.remove('is-glitching'), 400);
+            });
+            const releaseProfileTouch = () => profile.classList.remove('is-touch-active');
+            profile.addEventListener('pointerup', releaseProfileTouch);
+            profile.addEventListener('pointercancel', releaseProfileTouch);
         }
 
 
@@ -1161,10 +1332,10 @@
                                 I'm always eager to collaborate with passionate studios and developers. Reach out via <a href="mailto:jhoinercisnerosart@gmail.com" class="font-bold text-violet-300 underline decoration-2 underline-offset-4 hover:text-violet-200 transition-colors">Email</a>, see my latest work on <a href="https://www.artstation.com/jhoinercisneros" target="_blank" rel="noopener noreferrer" class="font-bold text-violet-300 underline decoration-2 underline-offset-4 hover:text-violet-200 transition-colors">ArtStation</a>, or message me on Discord: <span class="font-bold text-violet-300">User: jhoinercisneros</span>.
                             </p>
                             <div class="about-bio-actions pt-4 flex flex-wrap gap-4">
-                                <a href="#portfolio" class="px-8 py-4 bg-accentPurple text-black font-black uppercase tracking-widest text-xs rounded-xl hover:bg-emerald-400 transition-colors no-underline">
+                                <a href="#portfolio" class="about-action px-8 py-4 font-black uppercase tracking-widest text-xs rounded-xl no-underline">
                                     VIEW PORTFOLIO
                                 </a>
-                                <a href="#contact" class="px-8 py-4 bg-neutral-900 border border-neutral-700 text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-neutral-800 transition-colors no-underline">
+                                <a href="#contact" class="about-action px-8 py-4 font-black uppercase tracking-widest text-xs rounded-xl no-underline">
                                     GET IN TOUCH
                                 </a>
                             </div>
@@ -1172,7 +1343,7 @@
 
                         <!-- Right Column: Circular Profile Photo -->
                         <div class="order-1 lg:order-2 lg:col-span-5 flex justify-center">
-                            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-accentPurple to-neutral-800 shadow-2xl">
+                            <div class="about-profile-glitch relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-accentPurple to-neutral-800 shadow-2xl">
                                 <img src="images/jhoiner-profile.jpg" alt="Jhoiner Cisneros" class="w-full h-full object-cover rounded-full border-4 border-black">
                             </div>
                         </div>
